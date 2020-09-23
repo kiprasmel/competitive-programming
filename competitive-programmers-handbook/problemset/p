@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# run
+ 
+[ -z "$1" ] && {
+	printf "p filename.cpp\n"
+	exit 1
+}
+
+# bash
+g++ "$1" -Wall -DPROD && cat ./in | (time ./a.out)
+ 
+# zsh
+#g++ "$1" -Wall -DPROD && { cat ./in | time ./a.out }
+

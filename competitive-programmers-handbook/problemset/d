@@ -6,10 +6,11 @@
 	exit 1
 }
 
-# bash
-g++ "$1" -Wall -DDEBUG && cat ./in | (time ./a.out)
- 
-# zsh
-#g++ "$1" -Wall -DDEBUG && { cat ./in | time ./a.out }
+INPUT="$(xclip -selection primary -o || xclip -selection clipboard -o)"
 
+printf "BEGIN INPUT\n$INPUT\nEND INPUT\n\n"
+
+g++ "$1" -Wall -DDEBUG && printf "$INPUT\n" | (time ./a.out)
+
+## g++ "$1" -Wall -DDEBUG && cat ./in | (time ./a.out)
 

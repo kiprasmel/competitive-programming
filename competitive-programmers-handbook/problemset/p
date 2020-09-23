@@ -6,9 +6,11 @@
 	exit 1
 }
 
-# bash
-g++ "$1" -Wall -DPROD && cat ./in | (time ./a.out)
- 
-# zsh
-#g++ "$1" -Wall -DPROD && { cat ./in | time ./a.out }
+INPUT="$(xclip -selection primary -o || xclip -selection clipboard -o)"
+
+printf "BEGIN INPUT\n$INPUT\nEND INPUT\n\n"
+
+g++ "$1" -Wall -DPROD && printf "$INPUT\n" | (time ./a.out)
+
+## g++ "$1" -Wall -DPROD && cat ./in | (time ./a.out)
 

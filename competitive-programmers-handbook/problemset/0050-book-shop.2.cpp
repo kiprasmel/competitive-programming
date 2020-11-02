@@ -26,6 +26,11 @@ const ll MOD = (1e9 + 7);
 #define LOA(x)
 #endif
 
+struct Book {
+	int price;
+	int pages;
+};
+
 int main() {
 	ios::sync_with_stdio(0);
 	cin.tie(0);
@@ -33,7 +38,31 @@ int main() {
 	// const char* __fin  = "in"; freopen(__fin,  "r", stdin); std::ifstream __input_file(__fin); assert(__input_file.good());
 	// const char* __fout = "out"; freopen(__fout, "w", stdout);
 
-	
+	int n, x;
+	scanf("%d %d", &n, &x);
+
+	vector<Book> books(n);
+	for (int i = 0; i < n; i++) {
+		scanf("%d", &books[i].price);
+	}
+	for (int i = 0; i < n; i++) {
+		scanf("%d", &books[i].pages);
+	}
+
+	vector<int> dp(x + 1, 0); // amount of pages at price `x`
+
+	for (Book& b : books) {
+		for (int p = x; p >= 0; p--) {
+			if (p + b.price <= x) {
+				dp[p + b.price]	= max(dp[p + b.price], dp[p] + b.pages);
+			}
+		}
+
+	}
+
+	LOGSA(dp);
+
+	printf("%d\n", dp[x]);
 
 	return 0;
 }

@@ -4,7 +4,7 @@ using namespace std;
 
 typedef unsigned long long ull;
 
-#if (1 || defined(DEBUG)) && !defined(PROD)
+#if (0 || defined(DEBUG)) && !defined(PROD)
 #define LOG(x) std::cout << x << "\n"
 #define LOGS(x) std::cout << x << " "
 #define LO(x) std::cout << x
@@ -218,7 +218,7 @@ int main() {
 	ios::sync_with_stdio(0);
 	cin.tie(0);
 
-	freopen("in", "r", stdin); std::ifstream __input_file("in"); assert(__input_file.good());
+	// freopen("in", "r", stdin); std::ifstream __input_file("in"); assert(__input_file.good());
 	// freopen("out", "w", stdout);
 
 	string path;

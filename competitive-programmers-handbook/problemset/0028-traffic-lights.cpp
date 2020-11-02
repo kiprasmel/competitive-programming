@@ -2,11 +2,14 @@
 #pragma GCC target ("sse4")
 
 #include <bits/stdc++.h>
+#include <ext/pb_ds/assoc_container.hpp>
 
 using namespace std;
+using namespace __gnu_pbds;
 
 typedef long long ll;
 typedef unsigned long long ull;
+typedef tree<int,null_type,less<int>,rb_tree_tag,tree_order_statistics_node_update> indexed_set;
 
 const ll MOD = (1e9 + 7);
 

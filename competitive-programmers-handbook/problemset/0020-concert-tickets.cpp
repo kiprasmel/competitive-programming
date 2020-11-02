@@ -65,8 +65,8 @@ int main() {
 					best_match_idx = mid;
 				}
 			} else {
-				end = mid - 1;
 				start -= added_to_start;
+				end = ((start + end) / 2) - 1;
 			}
 		}
 

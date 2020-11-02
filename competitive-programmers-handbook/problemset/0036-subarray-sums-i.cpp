@@ -2,11 +2,14 @@
 #pragma GCC target ("sse4")
 
 #include <bits/stdc++.h>
+#include <ext/pb_ds/assoc_container.hpp>
 
 using namespace std;
+using namespace __gnu_pbds;
 
 typedef long long ll;
 typedef unsigned long long ull;
+typedef tree<int,null_type,less<int>,rb_tree_tag,tree_order_statistics_node_update> indexed_set;
 
 const ll MOD = (1e9 + 7);
 
@@ -33,7 +36,38 @@ int main() {
 	// const char* __fin  = "in"; freopen(__fin,  "r", stdin); std::ifstream __input_file(__fin); assert(__input_file.good());
 	// const char* __fout = "out"; freopen(__fout, "w", stdout);
 
-	
+	int n;
+	ll x;
+	scanf("%d %lld", &n, &x);
+
+	vector<ll> v(n + 1);
+	vector<ll> psums(n + 1);
+	v[0] = 0;
+	psums[0] = 0;
+	for (int i = 1; i <= n; i++) {
+		scanf("%lld", &v[i]);
+
+		psums[i] = psums[i - 1] + v[i];
+	}
+
+	int left = 1, right = 1;
+	ll count = 0;
+	while (left <= n && right <= n) {
+		ll sum = psums[right] - psums[left-1];
+		LOG("left " << left << "; right " << right << "; sum " << sum);
+		
+		if (sum == x) {
+			count++;
+			left++;
+		} else if (sum < x) {
+			right++;
+		} else if (sum > x) {
+			left++;
+		}
+	}
+
+	LOG("");
+	printf("%lld\n", count);
 
 	return 0;
 }

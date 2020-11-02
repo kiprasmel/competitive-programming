@@ -10,7 +10,7 @@ INPUT="$(xclip -selection primary -o || xclip -selection clipboard -o)"
 
 printf "BEGIN INPUT\n$INPUT\nEND INPUT\n\n"
 
-g++ "$1" -Wall -DDEBUG && printf "$INPUT\n" | (time ./a.out)
+g++ -std=c++17 "$1" -Wall -DDEBUG && printf "$INPUT\n" | (time ./a.out)
 
 ## g++ "$1" -Wall -DDEBUG && cat ./in | (time ./a.out)
 

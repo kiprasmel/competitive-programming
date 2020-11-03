@@ -1,0 +1,7 @@
+{
+	"files.associations": {
+		"*.js": "javascript",
+		"*.rmd": "markdown",
+		"ranges": "cpp"
+	}
+}

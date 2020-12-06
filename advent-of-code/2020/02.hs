@@ -9,7 +9,7 @@ solveOne line = matchesCount mi ma c s
     w  = words line
     mi = read (w !! 0) :: Int
     ma = read (w !! 1) :: Int
-    c  = head $ w !! 2
+    c  = head (w !! 2)
     s  = w !! 3
 
 main :: IO ()

@@ -1,4 +1,4 @@
-import Data.List.Split
+import Data.List.Split (splitOn)
 
 isValid :: [String] -> Int
 isValid xs = if valid then 1 else 0
@@ -10,4 +10,3 @@ isValid xs = if valid then 1 else 0
 
 main :: IO ()
 main = interact $ show . sum . map (isValid . words) . splitOn "\n\n"
-

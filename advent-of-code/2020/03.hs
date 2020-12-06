@@ -10,4 +10,3 @@ countTrees i xs
 
 main :: IO ()
 main = interact $ show . countTrees 1 . lines
-

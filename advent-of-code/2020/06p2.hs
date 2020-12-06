@@ -1,4 +1,4 @@
-import Data.List       (sort)
+import Data.List       (sort   )
 import Data.List.Split (splitOn)
 
 countCommonAnswersInGroup :: [Char] -> Int

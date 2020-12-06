@@ -1,5 +1,5 @@
 import Data.List       (sort, nub)
-import Data.List.Split (splitOn)
+import Data.List.Split (splitOn  )
 
 countUniqueAnswersInGroup :: [Char] -> Int
 countUniqueAnswersInGroup = length . nub . sort . concat . lines

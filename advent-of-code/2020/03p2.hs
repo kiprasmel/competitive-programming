@@ -16,4 +16,3 @@ countAllTrees xs = product $ map countSlope slopes
 
 main :: IO ()
 main = interact $ show . countAllTrees . lines
-

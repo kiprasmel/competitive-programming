@@ -87,16 +87,34 @@ int main() {
 		return 0;
 	}
 	
+	int dp[501 * 502 / 2];
+	memset(dp, 0, sizeof(dp));
+	dp[0] = 1;
 
+	for (int x = n; x >= 1; x--) {
+		for (int i = n * n / 2; i >= 0; i--) {
+			if (dp[i]) {
+				dp[i + x] += dp[i] + 1;
+				dp[i + x] %= INF;
+			}
+		}
+	}
+
+	LOGSA(dp);
+	LOG("");
+
+	int sol = dp[half];
+
+	/*
 	ll sol = solve(1, n, half);
 
 	LOG("orig sol without (/ 2) & (% INF) = " << sol);
 
 	// assert(sol % 2 == 0);
-	/** the solution count is always 2x because they're mirrored -- we fix it here */
+	// the solution count is always 2x because they're mirrored -- we fix it here
 	sol /= 2;
 	sol %= INF;
-
+	*/
 
 	cout << sol << "\n";
 

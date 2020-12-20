@@ -1,8 +1,9 @@
-#include <bits/stdc++.h>
+
+/* BEGIN INC_STACK */
+#include <cstdio>
 #include <sys/resource.h>
 
-void inc_stack() {
-    const __rlim_t kStackSize = 1024L/*B*/ * 1024L/*KB*/ * 64L/*MB*/; // min stack size = 64 Mb
+void inc_stack(const __rlim_t kStackSize = 1024L/*B*/ * 1024L/*KB*/ * 64L/*MB*/) {
     struct rlimit rl;
     int result;
 
@@ -20,4 +21,5 @@ void inc_stack() {
         }
     }
 }
+/* END INC_STACK */
 
